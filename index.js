@@ -11,6 +11,7 @@ const add_button = document.getElementById("add-button")
 const tickets_id = document.getElementById("tickets-id")
 const message = document.getElementById("message")
 const go_button = document.getElementById("go-button")
+const showHint = document.getElementById("showHint")
 
 function renderTickets() {
     tickets_id.innerHTML = ""
@@ -36,11 +37,18 @@ function renderTickets() {
         const removeButton = document.createElement('button')
         removeButton.textContent = "Удалить"
         li.append(removeButton)
-        tickets_id.append(li)
         removeButton.addEventListener('click', () => {
             tickets.splice(index, 1)
             renderTickets()
         });
+        if (showHint.checked) {
+            if (x.done === false) {
+                tickets_id.append(li)
+            }
+        }
+        else {
+            tickets_id.append(li)
+        }
     })
 };
 renderTickets();
@@ -62,4 +70,8 @@ add_button.addEventListener('click', () => {
         category_id.value = ""
         message.textContent = ""
     }
+});
+
+showHint.addEventListener('change', () => {
+    renderTickets()
 });
