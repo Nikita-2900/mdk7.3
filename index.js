@@ -28,6 +28,7 @@ function renderTickets() {
         const goButton = document.createElement('button')
         if (x.done === false) {
             goButton.textContent = "Выполнить"
+            goButton.style.background = "green"
             li.append(goButton)
         }
         goButton.addEventListener('click', () => {
@@ -36,6 +37,7 @@ function renderTickets() {
         });
         const removeButton = document.createElement('button')
         removeButton.textContent = "Удалить"
+        removeButton.style.background = "red"
         li.append(removeButton)
         removeButton.addEventListener('click', () => {
             tickets.splice(index, 1)
