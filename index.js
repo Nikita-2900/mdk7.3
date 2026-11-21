@@ -56,8 +56,14 @@ renderTickets();
 
 add_button.addEventListener('click', () => {
     const new_obj = { title: "", room: "", category: "", done: false }
-    if (trouble_id.value.trim() == "" || room_id.value.trim() == "" || category_id.value === "") {
-        message.textContent = "Вы заполнили не все поля"
+    if (trouble_id.value.trim() == "") {
+        message.textContent = "Укажите проблему"
+    }
+    else if (room_id.value.trim() == "") {
+        message.textContent = "Укажите Место"
+    }
+    else if (category_id.value === "") {
+        message.textContent = "Выберите категорию"
     }
     else {
         new_obj.title = trouble_id.value
