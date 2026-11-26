@@ -12,6 +12,7 @@ const tickets_id = document.getElementById("tickets-id")
 const message = document.getElementById("message")
 const go_button = document.getElementById("go-button")
 const showHint = document.getElementById("showHint")
+const category2_id = document.getElementById("category2-id")
 
 function renderTickets() {
     tickets_id.innerHTML = ""
@@ -51,11 +52,21 @@ function renderTickets() {
         });
         if (showHint.checked) {
             if (x.done === false) {
-                tickets_id.append(li)
+                if (category2_id.value === "Все") {
+                    tickets_id.append(li)
+                }
+                else if (category2_id.value == x.category) {
+                    tickets_id.append(li)
+                } 
             }
         }
         else {
-            tickets_id.append(li)
+            if (category2_id.value === "Все") {
+                tickets_id.append(li)
+            }
+            else if (category2_id.value == x.category) {
+                tickets_id.append(li)
+            }
         }
     })
 };
@@ -87,5 +98,8 @@ add_button.addEventListener('click', () => {
 });
 
 showHint.addEventListener('change', () => {
+    renderTickets()
+});
+category2_id.addEventListener('change', () => {
     renderTickets()
 });
