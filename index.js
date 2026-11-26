@@ -25,14 +25,15 @@ function renderTickets() {
         else {
             done = "Открыта"
         };
-        li.textContent = `Проблема: ${x.title}, Место: ${x.room}, Категория: ${x.category}, Статус: ${done}`
-        li.style.marginBottom = "5px";
+        li.style.whiteSpace = 'pre-line';
+        li.style.listStyle = "none"
+        li.textContent = `Проблема: ${x.title}\n Место: ${x.room}\n Категория: ${x.category}\n Статус: ${done}\n`
         
         const goButton = document.createElement('button')
         if (x.done === false) {
             goButton.textContent = "Выполнить"
             goButton.style.background = "green"
-            goButton.style.marginLeft = "7px";
+            goButton.style.marginRight = "7px";
             goButton.style.padding = "3px";
             li.append(goButton)
         }
@@ -43,7 +44,6 @@ function renderTickets() {
         const removeButton = document.createElement('button')
         removeButton.textContent = "Удалить"
         removeButton.style.background = "red"
-        removeButton.style.marginLeft = "7px";
         removeButton.style.padding = "3px";
         li.append(removeButton)
         removeButton.addEventListener('click', () => {
