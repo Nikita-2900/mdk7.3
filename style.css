@@ -33,7 +33,7 @@ h1 {
 .sss {
     margin-top: 30px;
     display: flex;
-    margin-left: 10dvw;
+    justify-content: center;
 }
 p {
     display: flex;
